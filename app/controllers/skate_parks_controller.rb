@@ -3,7 +3,8 @@ class SkateParksController < ApplicationController
 
   # POST /skate_parks/import
   def import
-    SkatePark.import(params[:file])
+    file = params[:file].path
+    SkatePark.import(file)
   end
   # GET /skate_parks
   def index
@@ -11,7 +12,9 @@ class SkateParksController < ApplicationController
 
     render json: @skate_parks
   end
-
+  def path
+    
+  end
   # GET /skate_parks/1
   def show
     render json: @skate_park

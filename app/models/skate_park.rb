@@ -3,7 +3,7 @@ class SkatePark < ApplicationRecord
   require 'csv'
 
   def self.import(file)
-    CSV.foreach(file.path, headers: true) do |row|
+    CSV.foreach(file, headers: true) do |row|
 
       skate_park_hash = row.to_hash
       skate_park = SkatePark.where(name: skate_park_hash["name"])
